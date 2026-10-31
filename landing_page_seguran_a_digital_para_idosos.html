@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidado com o Clique! - Guia de Segurança Digital</title>
+    <!-- Tailwind CSS CDN para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1E3A8A',
+                        cream: '#FDFBF7',
+                        accent: '#10B981',
+                        alert: '#EF4444',
+                        warning: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos adicionais de acessibilidade e animação */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            transition: font-size 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Alto Contraste */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
+        body.high-contrast .bg-card {
+            background-color: #121212 !important;
+            border: 2px solid #FFFF00 !important;
+            color: #FFFFFF !important;
+        }
+        body.high-contrast .text-navy, body.high-contrast h1, body.high-contrast h2, body.high-contrast h3 {
+            color: #FFFF00 !important;
+        }
+        body.high-contrast .bg-navy {
+            background-color: #1A1A1A !important;
+            border-bottom: 2px solid #FFFF00;
+        }
+        body.high-contrast button {
+            border: 2px solid #FFFFFF !important;
+        }
+
+        /* Classes de utilidade de tamanho de fonte */
+        .text-size-normal { font-size: 100%; }
+        .text-size-large { font-size: 115%; }
+        .text-size-xlarge { font-size: 130%; }
+    </style>
+</head>
+<body class="bg-cream text-gray-800 antialiased min-h-screen text-size-normal">
+
+    <!-- BARRA DE ACESSIBILIDADE FIXA -->
+    <div class="sticky top-0 z-50 bg-navy text-white shadow-lg px-4 py-3">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-2 font-bold text-lg md:text-xl">
+                <span>🛡️ Segurança Digital</span>
+            </div>
+            <div class="flex items-center space-x-2 sm:space-x-4 text-sm sm:text-base">
+                <span class="hidden sm:inline font-medium">Acessibilidade:</span>
+                <!-- Botões de tamanho da fonte -->
+                <div class="bg-blue-900 rounded-lg p-1 flex items-center border border-blue-700">
+                    <button onclick="changeFontSize(-1)" class="px-3 py-1 font-bold hover:bg-blue-800 rounded transition" title="Diminuir Texto" aria-label="Diminuir tamanho do texto">A-</button>
+                    <button onclick="resetFontSize()" class="px-2 py-1 text-xs hover:bg-blue-800 rounded transition" title="Tamanho Normal">Reset</button>
+                    <button onclick="changeFontSize(1)" class="px-3 py-1 font-bold hover:bg-blue-800 rounded transition" title="Aumentar Texto" aria-label="Aumentar tamanho do texto">A+</button>
+                </div>
+                <!-- Botão de Alto Contraste -->
+                <button onclick="toggleHighContrast()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-3 py-1.5 rounded-lg transition shadow flex items-center gap-1">
+                    <span>👁️</span> <span class="hidden md:inline">Alto Contraste</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="bg-navy text-white py-12 md:py-16 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto space-y-6 relative z-10">
+            <div class="inline-block bg-yellow-400 text-gray-900 font-extrabold px-4 py-1.5 rounded-full text-sm md:text-base tracking-wide uppercase shadow-md">
+                Guia Prático para a Terceira Idade
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black leading-tight">
+                Cuidado com o Clique! 🚫🖱️
+            </h1>
+            <p class="text-xl sm:text-2xl md:text-3xl text-blue-100 max-w-3xl mx-auto font-light">
+                Aprenda a identificar mensagens e links falsos no WhatsApp, SMS e E-mail para navegar na internet sem medo.
+            </p>
+            <div class="pt-4">
+                <a href="#quiz" class="inline-block bg-accent hover:bg-emerald-600 text-white font-extrabold text-lg sm:text-xl px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                    Fazer o Teste Interativo 🎯
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-14">
+
+        <!-- O QUE É PHISHING -->
+        <section class="bg-card bg-white p-6 md:p-8 rounded-2xl shadow-md border border-gray-100 space-y-4">
+            <div class="flex items-center space-x-3 text-navy">
+                <span class="text-4xl">🎣</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold">O que é Phishing?</h2>
+            </div>
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700">
+                O termo vem da palavra em inglês para <strong>"pescaria"</strong>. Assim como um pescador joga um anzol com uma isca, os golpistas enviam mensagens falsas fingindo ser o seu banco, uma loja famosa ou até parentes.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-navy p-4 md:p-5 rounded-r-xl my-4">
+                <p class="text-base sm:text-lg text-navy font-semibold">
+                    💡 <strong>O objetivo do golpe:</strong> Fazer você clicar em um link falso para roubar suas senhas, dados de cartão de crédito ou infectar seu celular.
+                </p>
+            </div>
+        </section>
+
+        <!-- SINAIS DE ALERTA -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-black text-navy">🚨 3 Sinais de Alerta para Ficar Atento</h2>
+                <p class="text-gray-600 text-lg">Se a mensagem contiver qualquer um destes itens, desconfie imediatamente!</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Sinal 1 -->
+                <div class="bg-card bg-white p-6 rounded-2xl shadow-md border-t-4 border-warning space-y-3">
+                    <div class="text-3xl">⚡</div>
+                    <h3 class="text-xl font-bold text-navy">1. Urgência Excessiva</h3>
+                    <p class="text-base text-gray-700 leading-relaxed">
+                        Frases como <em>"Sua conta será bloqueada HOJE!"</em> ou <em>"Últimos 10 minutos para resgatar"</em> servem para você agir sem pensar.
+                    </p>
+                </div>
+
+                <!-- Sinal 2 -->
+                <div class="bg-card bg-white p-6 rounded-2xl shadow-md border-t-4 border-alert space-y-3">
+                    <div class="text-3xl">🎁</div>
+                    <h3 class="text-xl font-bold text-navy">2. Promessas Fáceis</h3>
+                    <p class="text-base text-gray-700 leading-relaxed">
+                        Mensagens prometendo <em>"Você ganhou R$ 1.000 no Pix"</em> ou prêmios de sorteios nos quais você nem se inscreveu.
+                    </p>
+                </div>
+
+                <!-- Sinal 3 -->
+                <div class="bg-card bg-white p-6 rounded-2xl shadow-md border-t-4 border-navy space-y-3">
+                    <div class="text-3xl">🌐</div>
+                    <h3 class="text-xl font-bold text-navy">3. Links Estranhos</h3>
+                    <p class="text-base text-gray-700 leading-relaxed">
+                        Endereços cheios de números ou letras esquisitas (exemplo: <code>banco-seguranca-atualizar.click</code> em vez do site oficial).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERATIVO -->
+        <section id="quiz" class="bg-card bg-white p-6 md:p-8 rounded-2xl shadow-xl border-2 border-navy space-y-6">
+            <div class="text-center space-y-2">
+                <span class="bg-blue-100 text-navy font-bold px-3 py-1 rounded-full text-sm">Prática Rápida</span>
+                <h2 class="text-3xl font-black text-navy">🎯 Teste Interativo: É Golpe ou Seguro?</h2>
+                <p class="text-gray-600 text-lg">Leia a mensagem abaixo e clique na opção correta:</p>
+            </div>
+
+            <!-- Card da Pergunta -->
+            <div id="quiz-container" class="bg-gray-50 p-6 rounded-xl border border-gray-200 space-y-6">
+                <!-- A pergunta será renderizada via JS -->
+            </div>
+
+            <!-- Progresso do Quiz -->
+            <div class="flex justify-between items-center text-sm font-semibold text-gray-500 pt-2">
+                <span id="quiz-progress">Pergunta 1 de 3</span>
+                <button onclick="resetQuiz()" class="text-navy underline hover:text-blue-800">Reiniciar Teste</button>
+            </div>
+        </section>
+
+        <!-- REGRAS DE OURO DA PREVENÇÃO -->
+        <section class="space-y-6">
+            <h2 class="text-3xl font-black text-navy text-center">🛡️ As 4 Regras de Ouro da Prevenção</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-card bg-white p-5 rounded-xl shadow border-l-8 border-red-500 flex items-start space-x-4">
+                    <span class="text-3xl">🛑</span>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900">1. NÃO CLIQUE!</h3>
+                        <p class="text-gray-700 text-base">Nunca abra links recebidos em mensagens de números desconhecidos ou suspeitos.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card bg-white p-5 rounded-xl shadow border-l-8 border-blue-500 flex items-start space-x-4">
+                    <span class="text-3xl">🔍</span>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900">2. Confirme na Fonte</h3>
+                        <p class="text-gray-700 text-base">Na dúvida, abra o aplicativo oficial do banco ou ligue no número do verso do seu cartão.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card bg-white p-5 rounded-xl shadow border-l-8 border-yellow-500 flex items-start space-x-4">
+                    <span class="text-3xl">🤐</span>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900">3. Guarde seus Códigos</h3>
+                        <p class="text-gray-700 text-base">Códigos que chegam por SMS no seu celular são SECRETOS. Nunca passe para ninguém.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card bg-white p-5 rounded-xl shadow border-l-8 border-emerald-500 flex items-start space-x-4">
+                    <span class="text-3xl">🗣️</span>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-900">4. Peça Ajuda</h3>
+                        <p class="text-gray-700 text-base">Ficou com dúvida? Mostre a mensagem para um filho, neto ou pessoa de confiança antes de agir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O QUE FAZER SE CAIR NO GOLPE -->
+        <section class="bg-red-50 border border-red-200 p-6 md:p-8 rounded-2xl space-y-4">
+            <div class="flex items-center space-x-3 text-red-700">
+                <span class="text-3xl">🚨</span>
+                <h2 class="text-2xl font-bold">Caí no golpe! O que fazer imediatamente?</h2>
+            </div>
+            <ol class="list-decimal list-inside space-y-3 text-lg text-gray-800 font-medium">
+                <li><strong>Ligue para o seu banco:</strong> Peça o bloqueio preventivo de cartões e senhas atrelados à conta.</li>
+                <li><strong>Troque suas senhas:</strong> Altere a senha do seu e-mail e de suas redes sociais usando outro aparelho.</li>
+                <li><strong>Registre um Boletim de Ocorrência (B.O.):</strong> Pode ser feito online pelo site da Polícia Civil do seu Estado.</li>
+            </ol>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-navy text-white text-center py-8 px-4 mt-12 border-t border-blue-900">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <p class="text-lg font-bold">Projeto Informativo de Segurança Digital na Terceira Idade</p>
+            <p class="text-sm text-blue-200">Conteúdo educativo feito para proteger quem a gente ama. Compartilhe com seus familiares!</p>
+            <p class="text-xs text-blue-300 pt-4">© 2026 - Material gratuito e acessível.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA EM JAVASCRIPT -->
+    <script>
+        // --- ACESSIBILIDADE: CONTROLE DE FONTE ---
+        let currentFontLevel = 0;
+        const fontClasses = ['text-size-normal', 'text-size-large', 'text-size-xlarge'];
+
+        function changeFontSize(direction) {
+            currentFontLevel += direction;
+            if (currentFontLevel < 0) currentFontLevel = 0;
+            if (currentFontLevel >= fontClasses.length) currentFontLevel = fontClasses.length - 1;
+            
+            document.body.className = document.body.className.replace(/text-size-\w+/g, '');
+            document.body.classList.add(fontClasses[currentFontLevel]);
+        }
+
+        function resetFontSize() {
+            currentFontLevel = 0;
+            document.body.className = document.body.className.replace(/text-size-\w+/g, '');
+            document.body.classList.add('text-size-normal');
+        }
+
+        // --- ACESSIBILIDADE: ALTO CONTRASTE ---
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // --- SIMULADOR / QUIZ INTERATIVO ---
+        const quizData = [
+            {
+                scenario: "📱 SMS Recebido: 'BANCO BANCOSUL: Seu cartão foi cancelado devido a suspeita de fraude. Clique no link para reativar: http://banc-sul-seguro.info/app'",
+                isGolpe: true,
+                explanation: "🚨 É GOLPE! Bancos não enviam links por SMS para reativar cartões. Note também o endereço estranho 'banc-sul-seguro.info'."
+            },
+            {
+                scenario: "💬 WhatsApp de número desconhecido: 'Oi mãe, mudei de número. Adiciona este novo aí! Aliás, precisa pagar uma conta urgente hoje para mim?'",
+                isGolpe: true,
+                explanation: "🚨 É GOLPE! É o famoso golpe do 'falso filho'. Antes de transferir qualquer valor ou salvar o número, ligue para o número antigo do seu filho para confirmar."
+            },
+            {
+                scenario: "✉️ E-mail da loja oficial onde você fez compras ontem informando o código de rastreamento do produto para você acompanhar diretamente no aplicativo oficial.",
+                isGolpe: false,
+                explanation: "✅ É SEGURO! Informativos de compras reais geralmente pedem para você checar o status direto no aplicativo da loja, sem solicitar senhas ou urgência no Pix."
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            const progress = document.getElementById('quiz-progress');
+            const data = quizData[currentQuestion];
+
+            progress.innerText = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
+
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <p class="text-xl font-medium text-gray-900 bg-white p-4 rounded-lg border border-gray-200">
+                        ${data.scenario}
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <button onclick="checkAnswer(true)" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold text-lg py-3 px-6 rounded-xl transition shadow">
+                            🚨 É Golpe!
+                        </button>
+                        <button onclick="checkAnswer(false)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg py-3 px-6 rounded-xl transition shadow">
+                            ✅ É Seguro
+                        </button>
+                    </div>
+                    <div id="feedback" class="hidden p-4 rounded-xl text-lg font-semibold space-y-3"></div>
+                </div>
+            `;
+        }
+
+        function checkAnswer(userChoice) {
+            const data = quizData[currentQuestion];
+            const feedbackEl = document.getElementById('feedback');
+            const isCorrect = userChoice === data.isGolpe;
+
+            feedbackEl.classList.remove('hidden', 'bg-green-100', 'text-green-900', 'bg-red-100', 'text-red-900');
+
+            if (isCorrect) {
+                feedbackEl.classList.add('bg-green-100', 'text-green-900');
+                feedbackEl.innerHTML = `
+                    <p>🎉 <strong>Parabéns! Você acertou!</strong></p>
+                    <p class="font-normal text-base">${data.explanation}</p>
+                    ${getNextButtonHtml()}
+                `;
+            } else {
+                feedbackEl.classList.add('bg-red-100', 'text-red-900');
+                feedbackEl.innerHTML = `
+                    <p>⚠️ <strong>Atenção! Cuidado nessa situação.</strong></p>
+                    <p class="font-normal text-base">${data.explanation}</p>
+                    ${getNextButtonHtml()}
+                `;
+            }
+        }
+
+        function getNextButtonHtml() {
+            if (currentQuestion < quizData.length - 1) {
+                return `<button onclick="nextQuestion()" class="mt-2 bg-navy text-white px-5 py-2 rounded-lg text-base hover:bg-blue-900">Próxima Pergunta ➡️</button>`;
+            } else {
+                return `<p class="mt-2 text-sm text-navy font-bold">Você concluiu o teste! Compartilhe esse conhecimento com seus amigos.</p>`;
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            renderQuiz();
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            renderQuiz();
+        }
+
+        // Inicializar o quiz ao carregar a página
+        window.onload = function() {
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
